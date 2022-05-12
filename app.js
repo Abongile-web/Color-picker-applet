@@ -34,14 +34,25 @@ addBtn.addEventListener('click', ()=> {
         return;
     }
 
+    //if color is invalid, do not proceed and warn user 
+    let inValid = isColor(usercolor);
 
-    //if usercolor is an invalid color, do not proceed and warn user 
-
-    console.log();
-    console.log(colors);
+    if (inValid == false) {
+        alert('This is an invalid color. Please try again');
+        return;
+    }
 
     colors.push(usercolor);
 
     background.style.backgroundColor = colors[colors.length - 1];
     colortext.innerHTML = colors[colors.length - 1];
 })
+
+
+
+//funtion to check if user color is valid or not 
+function isColor(strColor){
+    var s = new Option().style;
+    s.color = strColor;
+    return s.color == strColor.toLowerCase();
+  }
