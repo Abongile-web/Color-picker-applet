@@ -27,7 +27,12 @@ addBtn.addEventListener('click', ()=> {
     const usercolor = document.querySelector('#mycolor').value;
 
     //if usercolor is already in list, do not proceed and warn user
+    let isInArray = colors.includes(usercolor);
 
+    if (isInArray === true) {
+        alert('This color is already in the list. Choose now color.')
+        return;
+    }
 
 
     //if usercolor is an invalid color, do not proceed and warn user 
